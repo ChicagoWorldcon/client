@@ -81,7 +81,7 @@ class KeyRequest extends React.Component {
         <p>
           If you're not able to enter a valid address, or if you do not receive
           the login link within 30 minutes or so, please get in touch with us at
-          {' '}<a href="mailto:registrar@dublin2019.com">registrar@dublin2019.com</a>{' '}
+          {' '}<a href="mailto:registrar@chicagoworldcon.org">registrar@chicagoworldcon.org</a>{' '}
           and we'll help you get sorted.
         </p><p>
           If your email address is associated with more than one membership that
