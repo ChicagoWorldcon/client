@@ -7,8 +7,9 @@ COPY package.json /usr/src/app/
 RUN npm install
 COPY . /usr/src/app
 
-ARG host=api.dublin2019.com:4433
+ARG host=api-dev.chicagoworldcon.org:443
 ARG title=Members
-ENV NODE_ENV=production API_HOST="${host}" TITLE="${title}"
-ENTRYPOINT ["./node_modules/.bin/webpack"]
+ARG node_env=production
+ENV NODE_ENV="${node_env}" API_HOST="${host}" TITLE="${title}"
+ENTRYPOINT ["./run-webpack.sh"]
 CMD ["-p"]

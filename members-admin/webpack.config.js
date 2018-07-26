@@ -28,7 +28,7 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       API_HOST: JSON.stringify(apiHost),
-      TITLE: JSON.stringify(process.env.TITLE || 'Dublin 2019'),
+      TITLE: JSON.stringify(process.env.TITLE || 'Chicago Worldcon'),
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV || ''),
       }
