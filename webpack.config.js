@@ -1,7 +1,7 @@
 const url = require('url');
 const webpack = require('webpack');
 
-const title = process.env.TITLE || 'Dublin 2019';
+const title = process.env.TITLE || 'Chicago Worldcon';
 
 const cfg = {
   entry: [
