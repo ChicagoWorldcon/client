@@ -76,7 +76,7 @@ export const MembershipSelect = ({ discount, getDefaultValue, getValue, lc = 'en
         key={type}
         disabled={ eurAmount < 0 || idx < prevIdx }
         value={type}
-        primaryText={ eurAmount <= 0 ? label : `${label} (€${eurAmount})` }
+        primaryText={ usdAmount <= 0 ? label : `${label} ($${usdAmount})` }
       />
     }) }
   </SelectField>

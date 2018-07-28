@@ -132,7 +132,7 @@ class Upgrade extends React.Component {
   onPurchase = (amount, token) => {
     const { buyUpgrade, email, push, showMessage } = this.props;
     const { membership, paperPubs } = this.state;
-    showMessage(`Charging ${email} EUR ${amount/100} for upgrade...`);
+    showMessage(`Charging ${email} USD ${amount/100} for upgrade...`);
     buyUpgrade(this.id, membership, paperPubs, amount, email, token, () => {
       showMessage('Payment successful!');
       push('/');
@@ -150,7 +150,7 @@ class Upgrade extends React.Component {
         </div>
         <StripeCheckout
           amount={amount}
-          currency="EUR"
+          currency="USD"
           description={this.description}
           disabled={disabled}
           email={this.props.email}

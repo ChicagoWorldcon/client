@@ -3,7 +3,7 @@ const ImmutablePropTypes = require('react-immutable-proptypes');
 
 import Divider from 'material-ui/Divider'
 import { List, ListItem, makeSelectable } from 'material-ui/List'
-import EuroSymbol from 'material-ui/svg-icons/action/euro-symbol'
+import DollarSymbol from 'material-ui/svg-icons/action/payment'
 import ThumbUp from 'material-ui/svg-icons/action/thumb-up'
 import Palette from 'material-ui/svg-icons/image/palette'
 import People from 'material-ui/svg-icons/social/people'
@@ -84,7 +84,7 @@ const NavMenu = ({ currentMember, handleNav, otherMembers }) => {
       value="/upgrade"
     />
     <ListItem
-      leftIcon={<EuroSymbol/>}
+      leftIcon={<DollarSymbol/>}
       primaryText="Payments"
       style={{ fontSize: 14 }}
       value="/pay"

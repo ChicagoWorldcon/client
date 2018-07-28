@@ -9,7 +9,7 @@ import { Tabs, Tab } from 'material-ui/Tabs';
 import TextField from 'material-ui/TextField';
 
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
-import PaymentsIcon from 'material-ui/svg-icons/action/euro-symbol'
+import PaymentsIcon from 'material-ui/svg-icons/editor/attach-money'
 import ActionSearch from 'material-ui/svg-icons/action/search'
 import ContentClear from 'material-ui/svg-icons/content/clear'
 import PeopleIcon from 'material-ui/svg-icons/social/people'

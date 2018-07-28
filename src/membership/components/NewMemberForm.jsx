@@ -55,7 +55,7 @@ class NewMemberForm extends React.Component {
     const { buyMembership, push, showMessage } = this.props;
     const { member } = this.state;
     const email = member.get('email');
-    showMessage(`Charging ${email} EUR ${this.price/100} ...`);
+    showMessage(`Charging ${email} USD ${this.price/100} ...`);
     buyMembership(member, this.price, email, token, () => {
       showMessage('Charge completed; new member registered!');
       push('/');
@@ -113,11 +113,11 @@ class NewMemberForm extends React.Component {
           </CardText>
           <CardActions style={{ display: 'flex', justifyContent: 'flex-end', paddingRight: 16, paddingBottom: 16 }}>
             <div style={{ color: 'rgba(0, 0, 0, 0.5)', paddingTop: 8, paddingRight: 16 }}>
-              {this.price > 0 ? `Total: €${this.price / 100}` : ''}
+              {this.price > 0 ? `Total: \$${this.price / 100}` : ''}
             </div>
             <StripeCheckout
               amount={this.price}
-              currency="EUR"
+              currency="USD"
               description={this.description}
               disabled={paymentDisabled}
               email={member.get('email')}

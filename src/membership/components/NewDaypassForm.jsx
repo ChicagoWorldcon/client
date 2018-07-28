@@ -80,7 +80,7 @@ class NewDaypassForm extends React.Component {
     const { person } = this.state
     const amount = this.price
     const email = person.get('email')
-    showMessage(`Charging ${email} EUR ${amount/100} ...`)
+    showMessage(`Charging ${email} USD ${amount/100} ...`)
     buyDaypass(person, amount, email, token, () => {
       showMessage('Charge completed; day pass purchased!')
       push('/')
@@ -162,7 +162,7 @@ class NewDaypassForm extends React.Component {
           <CardActions style={{ alignItems: 'center', display: 'flex', flexWrap: 'wrap', padding: 16 }}>
             <StripeCheckout
               amount={amount}
-              currency="EUR"
+              currency="USD"
               description={this.description}
               disabled={paymentDisabled}
               email={person.get('email')}

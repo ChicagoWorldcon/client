@@ -35,7 +35,7 @@ class StripeCheckout extends React.Component {
       <ReactStripeCheckout
         amount={amount}
         closed={onClose}
-        currency={currency || 'EUR'}
+        currency={currency || 'USD'}
         description={description}
         disabled={disabled}
         email={email}

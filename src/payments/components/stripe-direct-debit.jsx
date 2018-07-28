@@ -66,7 +66,7 @@ class StripeDirectDebit extends React.Component {
     const { iban, onCharge, owner, showMessage } = this.props
     Stripe.source.create({
       type: 'sepa_debit',
-      currency: 'eur',
+      currency: 'usd',
       sepa_debit: { iban },
       owner
     }, (status, response) => {

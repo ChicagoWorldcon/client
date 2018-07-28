@@ -101,7 +101,7 @@ class NewPayment extends React.Component {
     const account = purchaseData.getIn([category, 'account'], 'default');
     const email = purchase.get('email');
     const item = purchase.merge({ amount, category, type }).filter(v => v).toJS();
-    showMessage(`Charging ${purchase.get('email')} EUR ${amount / 100}...`);
+    showMessage(`Charging ${purchase.get('email')} USD ${amount / 100}...`);
     buyOther(account, email, source, [item], () => {
       showMessage('Payment successful!');
       push('/pay');
@@ -149,7 +149,7 @@ class NewPayment extends React.Component {
               <StripeCheckout
                 account={account}
                 amount={amount}
-                currency='EUR'
+                currency='USD'
                 description={title}
                 email={purchase.get('email')}
                 onCheckout={this.onCheckout}
