@@ -13,8 +13,6 @@ import HugoAdmin from './hugo-admin/components/HugoAdmin'
 import NewDaypassForm from './membership/components/NewDaypassForm'
 import NewMemberForm from './membership/components/NewMemberForm'
 import NewMemberIndex from './membership/components/NewMemberIndex'
-import TekMemberForm from './membership/components/TekMemberForm'
-import TekMemberIndex from './membership/components/TekMemberIndex'
 import Upgrade from './membership/components/Upgrade'
 import Upgraders from './membership/components/Upgraders'
 import Payments from './payments'
@@ -94,8 +92,6 @@ export default class AppRouter extends Route {
           <Route path="new/:membership" component={NewMemberForm} />
           <Route path="pay" component={Payments} />
           <Route path="pay/:type" component={NewPayment} />
-          <Route path="tek" component={TekMemberIndex} />
-          <Route path="tek/:membership" component={TekMemberForm} />
           <Route path="upgrade" onEnter={this.requireAuth}>
             <IndexRoute component={Upgrade} />
             <Route path=":id" component={Upgrade} />
