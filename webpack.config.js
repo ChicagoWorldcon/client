@@ -1,7 +1,7 @@
 const url = require('url');
 const webpack = require('webpack');
 
-const title = process.env.TITLE || 'Chicago Worldcon';
+const title = process.env.TITLE || 'Chicago Worldcon Bid';
 
 const cfg = {
   entry: [
@@ -13,18 +13,27 @@ const cfg = {
     filename: "bundle.js"
   },
   module: {
-    loaders: [
-      { test: /\.css$/, loader: 'style!css', exclude: /flexboxgrid/ },
-      { test: /\.css$/, loader: 'style!css?modules', include: /flexboxgrid/, },
-      { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel' },
-      { test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file-loader?name=img/[name].[ext]' }
+    rules: [
+      { test: /\.css$/, use: ['style-loader', 'css-loader'], exclude: /flexboxgrid/ },
+      { test: /\.css$/, loader: 'style-loader!css-loader?modules', include: /flexboxgrid/, },
+      { test: /\.jsx?$/, exclude: /node_modules/, use: ['babel-loader'] },
+      { test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file-loader?name=img/[name].[ext]' },
+        //{ test: /\.(jpe?g|png|gif|svg)$/i, loader: 'url-loader?limit=8192' }
+      {
+        type: 'javascript/auto',
+        test: /\.messages\.json$/,
+        loader: 'messageformat-loader',
+        options: {
+            locale: ['en'],
+        }
+      }
     ]
   },
   resolve: {
-    extensions: [ '', '.js', '.jsx', '.css' ]
+    extensions: [ '.js', '.jsx', '.css' ]
   },
   plugins: [
-    new webpack.NoErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin()
   ]
 };
 
