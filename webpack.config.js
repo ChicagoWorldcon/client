@@ -3,11 +3,15 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const title = process.env.TITLE || 'Chicago Worldcon Bid';
+const sourceMap = process.env.NODE_ENV === 'production' ? 'source-map' : 'eval-source-map';
+
+const apiHost = process.env.API_HOST || '';
 
 const cfg = {
   entry: [
     './src/index.jsx'
   ],
+  devtool: sourceMap,
   output: {
     path: __dirname + '/dist',
     publicPath: '/',
@@ -44,7 +48,7 @@ const cfg = {
 };
 
 const globals = {
-  API_HOST: JSON.stringify(''),
+  API_HOST: JSON.stringify(apiHost),
   ENV: JSON.stringify(process.env.NODE_ENV || ''),
   TITLE: JSON.stringify(title)
 }
@@ -59,7 +63,6 @@ if (process.env.NODE_ENV === 'production') {
 } else {
 
   console.log((process.env.NODE_ENV || 'development').toUpperCase() + ' build');
-  const HtmlWebpackPlugin = require('html-webpack-plugin');
 
   cfg.entry.push('webpack/hot/dev-server');
 

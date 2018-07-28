@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const title = process.env.TITLE || 'Chicago Worldcon Bid Member Admin';
 
-const apiHost = process.env.NODE_ENV === 'production' ? '' : (
+const apiHost = process.env.NODE_ENV === 'production' ? process.env.API_HOST : (
   process.env.API_HOST ||
   (process.env.DOCKER_HOST && url.parse(process.env.DOCKER_HOST).hostname || 'localhost') + ':4430'
 );
@@ -17,6 +17,7 @@ const cfg = {
     publicPath: '/admin',
     filename: 'bundle.js',
   },
+  devtool: '#eval-source-map',
   module: {
     rules: [
       {
