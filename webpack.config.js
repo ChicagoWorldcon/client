@@ -1,5 +1,6 @@
 const url = require('url');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const title = process.env.TITLE || 'Chicago Worldcon Bid';
 
@@ -33,7 +34,12 @@ const cfg = {
     extensions: [ '.js', '.jsx', '.css' ]
   },
   plugins: [
-    new webpack.NoEmitOnErrorsPlugin()
+      new webpack.NoEmitOnErrorsPlugin(),
+      new HtmlWebpackPlugin({
+          inject: 'body',
+          template: 'src/index.ejs',
+          title
+      })
   ]
 };
 
@@ -56,11 +62,6 @@ if (process.env.NODE_ENV === 'production') {
   const HtmlWebpackPlugin = require('html-webpack-plugin');
 
   cfg.entry.push('webpack/hot/dev-server');
-  cfg.plugins.push(new HtmlWebpackPlugin({
-    inject: 'body',
-    template: 'src/index.ejs',
-    title
-  }));
 
   const apiHost = process.env.API_HOST ||
     (process.env.DOCKER_HOST && url.parse(process.env.DOCKER_HOST).hostname || 'localhost') + ':4430';
