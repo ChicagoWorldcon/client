@@ -1,8 +1,8 @@
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 
 import './theme.css'
-import '../img/bg-aurora.jpg'
-import '../img/ursa.png'
+import '../img/bg-chicago-1.jpg'
+import '../img/logo.png'
 
 export const orange = '#6abd45';
 export const lightBlue = '#3da9d4';
