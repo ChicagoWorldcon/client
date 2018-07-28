@@ -1,5 +1,8 @@
 const url = require('url');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const title = process.env.TITLE || 'Chicago Worldcon Bid Member Admin';
 
 const apiHost = process.env.NODE_ENV === 'production' ? '' : (
   process.env.API_HOST ||
@@ -7,22 +10,23 @@ const apiHost = process.env.NODE_ENV === 'production' ? '' : (
 );
 if (apiHost) console.log('Using API host', apiHost);
 
-module.exports = {
+const cfg = {
   entry: './src/index.jsx',
   output: {
-    path: './dist',
+    path: __dirname + '/dist',
+    publicPath: '/admin',
     filename: 'bundle.js',
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/, exclude: /node_modules/,
-        loader: 'babel', query: {
+        loader: 'babel-loader', query: {
           presets: [ 'es2015', 'react' ],
           plugins: [ 'transform-class-properties', 'transform-object-rest-spread' ]
         }
       },
-      { test: /\.css$/, loader: 'style!css' }
+      { test: /\.css$/, loader: 'style-loader!css-loader' }
     ]
   },
   plugins: [
@@ -32,12 +36,20 @@ module.exports = {
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV || ''),
       }
+    }),
+    new HtmlWebpackPlugin({
+      inject: 'body',
+      template: 'src/index.ejs',
+      title
     })
+
   ],
   resolve: {
-    extensions: [ '', '.js', '.jsx', '.css' ]
+    extensions: [ '.js', '.jsx', '.css' ]
   },
   devServer: {
     contentBase: './dist'
   }
 }
+
+module.exports = cfg;
