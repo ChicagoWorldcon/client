@@ -1,10 +1,10 @@
-# Dublin 2019 Worldcon Member Services Client
+# Chicago Worldcon 2022 Member Services Client
 
 This project was forked from the Worldcon75 code at https://github.com/worldcon75/client
 
-These are the front-end clients used by the Dublin 2019 Worldcon Bid,
+These are the front-end clients used by the Chicago 2022 WorldCon Bid
 implemented as single-page react + redux apps. For the back-end code, please see
-[dublin2019/api](https://github.com/dublin2019/api).
+[ChicagoWorldcon/api](https://github.com/ChicagoWorldcon/api).
 
 
 ### Getting Started
@@ -14,13 +14,13 @@ the various `npm run` targets; the default `npm start` uses
 [webpack-dev-server](https://webpack.github.io/docs/webpack-dev-server.html) to incrementally
 re-build and serve the client code at `http://localhost:8080/` during development.
 
-To use the client, you'll need a [dublin2019/api](https://github.com/dublin2019/api) server that
+To use the client, you'll need a [ChicagoWorldcon/api](https://github.com/ChicagoWorldcon/api) server that
 you can connect to. In development, the server is assumed to run at its default local address
 `https://localhost:4430/`; in production, the default is to use the same host that server the
 client code. To specify a different target, use the `API_HOST` environment variable:
 
 ```
-API_HOST=members.worldcon.fi npm start
+API_HOST=api.chicagoworldcon.org npm start
 ```
 
 For other environment variables, see [`webpack.config.js`](./webpack.config.js). If you're running

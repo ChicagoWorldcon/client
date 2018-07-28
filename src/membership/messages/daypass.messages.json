@@ -3,7 +3,7 @@
   "legal_name_hint": "We'll need you to bring something with your legal name on it to pick up your badge at con, but otherwise it'll stay confidential.",
   "email": "Email",
   "new_email_hint": "How we'll get in touch with you before the con.",
-  "edit_email_hint": "To change the email address associated with this membership, please get in touch with us at <a href=\"mailto:registrar@chicagoworldcon.org\">registrar@chicagoworldcon.org</a>",
+  "edit_email_hint": "To change the email address associated with this membership, please get in touch with us at <a href=\"mailto:info@chicagoworldconbid.org\">info@chicagoworldconbid.org</a>",
   "public_first_name": "Given Name For Publications",
   "public_last_name": "Family Name For Publications",
   "public_name_hint": "How shall we list you in public? Leave these fields blank if you'd prefer we don't list you at all on our website or elsewhere. If you give us two names, we'll use the second for alphabetization (either can contain spaces). A few months before the con, you'll be able to separately customize the text of your badge.",
@@ -20,7 +20,7 @@
     "country": "Paper pubs country",
     "label": "Add paper progress reports (€{amount})",
     "new_hint": "By default, we'll be in touch with you electronically to let you know how our preparations are progressing. If you'd prefer to receive our progress reports and other publications by post, select this option (note the additional fee).",
-    "new_hint_accessiblity": "If paper progress reports are needed for Accessibility, please email registrar@chicagoworldcon.org, and we will provide them at no charge.",
+    "new_hint_accessiblity": "If paper progress reports are needed for Accessibility, please email info@chicagoworldconbid.org, and we will provide them at no charge.",
     "new_hint2": "We'll need to know where to send your mail. Please enter your address details here as you'd wish them to be printed onto a postal label.",
     "edit_hint": "For paper progress reports, we'll need to know where to send your mail. Please enter your address details here as you'd wish them to be printed onto a postal label."
   },

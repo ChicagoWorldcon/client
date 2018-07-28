@@ -118,8 +118,8 @@ export default class MemberForm extends React.Component {
               <TextInput { ...inputProps } key="input" path='email' disabled={true} />,
               <div key="hint" style={hintStyle}>
                 To change the email address associated with this membership, please
-                get in touch with us at <a href="mailto:registrar@chicagoworldcon.org">
-                registrar@chicagoworldcon.org</a>
+                get in touch with us at <a href="mailto:info@chicagoworldconbid.org">
+                info@chicagoworldconbid.org</a>
               </div>
           ] }
         </Col>
