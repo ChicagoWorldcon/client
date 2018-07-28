@@ -1,12 +1,28 @@
 #!/bin/bash
 set -e
 
-echo "*** Building static assets..."
+npm install
 
-npm run build:prod
+HERE=$(unset CDPATH; cd $(dirname $0); pwd)
+output() {
+    (
+        cd $HERE/../infrastructure
+        terraform output $1
+    )
+}
 
-echo "*** Sleeping..."
+eval $(aws --profile=chicago keyring show --export)
+export AWS_REGION=us-west-2
+export AWS_PROFILE=chicago
 
-while true; do
-  sleep 60
-done
+export PATH=$PATH:$HERE/node_modules/.bin
+
+export API_HOST=$(output api-address):$(output api-port)
+export TITLE="Members"
+export NODE_ENV=${NODE_ENV:-development}
+
+echo "Building a client for $(cd $HERE/../infrastructure; terraform workspace show)"
+
+rm -rf $HERE/dist
+cd $HERE && webpack -p  --progress --colors
+
