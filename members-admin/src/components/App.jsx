@@ -19,6 +19,7 @@ class App extends React.Component {
     title: PropTypes.string,
     api: PropTypes.object.isRequired,
     people: PropTypes.instanceOf(List).isRequired,
+    prices: PropTypes.instanceOf(Map).isRequired,
     user: PropTypes.instanceOf(Map).isRequired
   }
 
@@ -51,8 +52,37 @@ class App extends React.Component {
   }
 
   render() {
-    const { title, api, payments, people, user } = this.props
+    const { title, api, payments, people, prices, user } = this.props
     const { filter, helpOpen, member, scene } = this.state
+
+    const scenes = {
+      people: [
+          <MemberTable
+        key="table"
+        list={filterPeople(people, filter)}
+        onMemberSelect={member => this.setState({ member })}
+          />,
+        <Member
+          key="dialog"
+          api={api}
+          handleClose={() => this.setState({ member: null })}
+          member={member}
+          />,
+        <NewMember key="new" add={member => api.POST('people', member.toJS())}>
+          <FloatingActionButton style={{ position: 'fixed', bottom: '24px', right: '24px' }}>
+            <ContentAdd />
+          </FloatingActionButton>
+        </NewMember>
+        ],
+        payments: [
+        <PaymentTable
+          key="table"
+          list={filterPeople(payments, filter)}
+          onPaymentSelect={payment => console.log('payment', payment.toJS())}
+          />
+          ]
+          };
+
     return <div>
       <Toolbar
         title={title}
@@ -67,32 +97,7 @@ class App extends React.Component {
         onSceneChange={scene => this.setState({ scene })}
         scene={scene}
       />
-
-      {scene === 'people' ? [
-        <MemberTable
-          key="table"
-          list={filterPeople(people, filter)}
-          onMemberSelect={member => this.setState({ member })}
-        />,
-        <Member
-          key="dialog"
-          api={api}
-          handleClose={() => this.setState({ member: null })}
-          member={member}
-        />,
-        <NewMember key="new" add={member => api.POST('people', member.toJS())}>
-          <FloatingActionButton style={{ position: 'fixed', bottom: '24px', right: '24px' }}>
-            <ContentAdd />
-          </FloatingActionButton>
-        </NewMember>
-      ] : [
-        <PaymentTable
-          key="table"
-          list={filterPeople(payments, filter)}
-          onPaymentSelect={payment => console.log('payment', payment.toJS())}
-        />
-      ]}
-
+        {scenes[scene]}
       <HelpDialog
         open={helpOpen}
         handleClose={() => this.setState({ helpOpen: false })}
