@@ -5,6 +5,15 @@ import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card'
 import MemberTypeList from './MemberTypeList'
 
 const contents = {
+  bid_all: {
+    title: "Support the Bid",
+    body: <div>
+      <p>
+        Join us!
+      </p>
+    </div>,
+    memberships: ['FirstWorldcon', 'YoungAdult', 'Adult']
+  },
   all: {
     title: 'Buy new membership',
     body: <div>
@@ -96,6 +105,14 @@ const contents = {
     memberships: [ 'Supporter' ]
   },
 
+  bid_upgrade: {
+    title: 'Upgrade Support',
+    body: <div>
+      <p><b>Bid Supporters</b> can do more!
+      </p>
+    </div>,
+    memberships: [ 'Upgrade' ],
+  },
   upgrade: {
     title: 'Upgrade membership',
     body: <div>

@@ -22,7 +22,7 @@ class Index extends React.Component {
 
   componentDidMount() {
     const { getPrices, prices, setScene } = this.props;
-    setScene({ title: 'Memberships', dockSidebar: false });
+    setScene({ title: 'Bid Support', dockSidebar: false });
     if (!prices) getPrices();
   }
 
@@ -51,13 +51,13 @@ class Index extends React.Component {
       </Col>
       <Col xs={12} sm={6} lg={4}>
         <NewMemberCard
-          category="all"
+          category="bid_all"
           expandable={true}
           onSelectType={(type) => push(`/new/${type}`)}
           prices={prices}
         />
         <NewMemberCard
-          category="upgrade"
+          category="bid_upgrade"
           disabled={!isLoggedIn}
           expandable={isLoggedIn}
           onSelectType={() => push(upgradePath)}
