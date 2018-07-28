@@ -13,6 +13,17 @@ import SmilingFace from 'material-ui/svg-icons/social/mood'
 const SelectableList = makeSelectable(List);
 
 export const memberTypeData = {
+  BidSupporter: {
+    primary: 'Supporter'
+  },
+  BidFriend: {
+    primary: 'Friend',
+    icon: <SmilingFace/>
+  },
+  BidStar: {
+    primary: 'Star',
+    icon: <StarTicket/>
+  },
   Adult: {
     primary: 'Adult membership',
     daypass: 'Adult day pass (from €25/day)',

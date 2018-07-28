@@ -12,7 +12,7 @@ const contents = {
         Join us!
       </p>
     </div>,
-    memberships: ['FirstWorldcon', 'YoungAdult', 'Adult']
+    memberships: ['BidSupporter', 'BidFriend', 'BidStar']
   },
   all: {
     title: 'Buy new membership',

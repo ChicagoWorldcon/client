@@ -75,7 +75,7 @@ export default class AppRouter extends Route {
   }
 
   render() {
-    const { history } = this.props
+    const { history } = this.props;
     return (
       <Router history={history}>
         <Route path="/upgraders" component={Upgraders} />

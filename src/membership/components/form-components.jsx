@@ -54,6 +54,7 @@ export const MembershipSelect = ({ discount, getDefaultValue, getValue, lc = 'en
   const prevMembership = getDefaultValue && getDefaultValue(path)
   const prevIdx = membershipTypes.indexOf(prevMembership)
   const prevAmount = prices && prevMembership && prices.getIn(['memberships', prevMembership, 'amount']) || 0
+  const prevDiscount = prices && prevMembership && prices.getIn(['memberships', prevMembership, 'discount']) || prevAmount;
   const value = getValue(path) || 'NonMember'
   return <SelectField
     errorText={ value === 'NonMember' && prevMembership !== 'NonMember' ? messages[lc].required() : '' }
@@ -64,17 +65,19 @@ export const MembershipSelect = ({ discount, getDefaultValue, getValue, lc = 'en
     style={style}
     value={value}
   >
-    { membershipTypes.map((type, idx) => {
+    { membershipTypes
+      .filter((type, idx) => (prices && prices.getIn(['memberships', type, 'enabled'])) || false)
+      .map((type, idx) => {
       if (type === 'NonMember' && prevMembership !== 'NonMember') return null
       if (type === 'Exhibitor' && prevMembership !== 'Exhibitor') return null
       let amount = prices ? prices.getIn(['memberships', type, 'amount'], -100) : -100
       if (discount) amount -= prices && prices.getIn(['discounts', `${discount}-${type}`, 'amount']) || 0
-      const eurAmount = (amount - prevAmount) / 100
+      const usdAmount = (amount - prevDiscount) / 100;
       const label = messages[lc][type] ? messages[lc][type]()
         : prices && prices.getIn(['memberships', type, 'description']) || type
       return <MenuItem
         key={type}
-        disabled={ eurAmount < 0 || idx < prevIdx }
+        disabled={ usdAmount < 0 || idx < prevIdx }
         value={type}
         primaryText={ usdAmount <= 0 ? label : `${label} ($${usdAmount})` }
       />

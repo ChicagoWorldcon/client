@@ -12,6 +12,10 @@ import { buyMembership, getPrices } from '../../payments/actions'
 import StripeCheckout from '../../payments/components/stripe-checkout'
 import { MembershipSelect } from './form-components'
 import MemberForm from './MemberForm'
+import BidForm from './BidForm'
+
+const bidFormName = "bid";
+const membershipFormName = "membership";
 
 class NewMemberForm extends React.Component {
   static propTypes = {
@@ -25,10 +29,11 @@ class NewMemberForm extends React.Component {
     push: React.PropTypes.func.isRequired,
     replace: React.PropTypes.func.isRequired,
     setScene: React.PropTypes.func.isRequired,
-    showMessage: React.PropTypes.func.isRequired
+    showMessage: React.PropTypes.func.isRequired,
   }
 
   constructor(props) {
+    console.log("Form, props: ", props);
     super(props);
     const { email, getPrices, params: { membership }, prices } = this.props;
     this.state = {
@@ -80,10 +85,35 @@ class NewMemberForm extends React.Component {
     return msAmount + ppAmount;
   }
 
+  get membershipType() {
+    const { prices } = this.props;
+    if (!prices) return 0;
+    const { member } = this.state;
+    const msType = prices.getIn(['memberships', member.get('membership'), 'type']);
+    return msType;
+  }
+
   render() {
     const { prices, replace } = this.props;
     const { member, sent, valid } = this.state;
     const paymentDisabled = !valid || this.price <= 0;
+
+    const form = {
+      membership: <MemberForm
+                      member={member}
+                      newMember={true}
+                      onChange={ (valid, member) => this.setState({ member, valid }) }
+                      prices={prices}
+                      tabIndex={2}
+        />,
+      bid: <BidForm
+               member={member}
+               newMember={true}
+               onChange={ (valid, member) => this.setState({ member, valid }) }
+               prices={prices}
+               tabIndex={2}
+        />
+    }[this.membershipType];
 
     return <Row>
       <Col
@@ -102,14 +132,8 @@ class NewMemberForm extends React.Component {
                   prices={prices}
                 />
               </Col>
-            </Row>
-            <MemberForm
-              member={member}
-              newMember={true}
-              onChange={ (valid, member) => this.setState({ member, valid }) }
-              prices={prices}
-              tabIndex={2}
-            />
+          </Row>
+          {form}
           </CardText>
           <CardActions style={{ display: 'flex', justifyContent: 'flex-end', paddingRight: 16, paddingBottom: 16 }}>
             <div style={{ color: 'rgba(0, 0, 0, 0.5)', paddingTop: 8, paddingRight: 16 }}>
@@ -149,6 +173,7 @@ export default connect(
     push,
     replace,
     setScene,
-    showMessage
+    showMessage,
   }
 )(NewMemberForm);
+
