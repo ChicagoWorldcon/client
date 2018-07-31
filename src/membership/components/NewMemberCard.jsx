@@ -111,7 +111,7 @@ const contents = {
       <p><b>Bid Supporters</b> can do more!
       </p>
     </div>,
-    memberships: [ 'Upgrade' ],
+    memberships: [ 'UpgradeBid' ],
   },
   upgrade: {
     title: 'Upgrade membership',

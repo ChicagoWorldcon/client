@@ -13,10 +13,20 @@ import StripeCheckout from '../../payments/components/stripe-checkout'
 import * as PaymentPropTypes from '../../payments/proptypes'
 import * as MemberPropTypes from '../proptypes'
 import MemberLookupSelector from './MemberLookupSelector'
-import MemberTypeList from './MemberTypeList'
+import { MemberTypeList, memberTypeData } from './MemberTypeList'
 import { AddPaperPubs, paperPubsIsValid } from './paper-pubs';
 
-const UPGRADE_TARGET_TYPES = ['Adult', 'YoungAdult', 'FirstWorldcon', 'Child'];
+const UPGRADE_TARGET_TYPES = {
+    NonMember: ["BidSupporter", "BidFriend", "BidStar"],
+    BidSupporter: ["BidFriend", "BidStar"],
+    BidFriend: ["BidStar"],
+};
+
+function upgradeTypes(currentMembership) {
+    return UPGRADE_TARGET_TYPES[currentMembership] || [];
+}
+
+//const UPGRADE_TARGET_TYPES = ['Adult', 'YoungAdult', 'FirstWorldcon', 'Child'];
 
 function getIn(obj, path, unset) {
   const val = obj[path[0]];
@@ -46,9 +56,10 @@ class Upgrade extends React.Component {
     const person = id && props.people && props.people.find(p => p.get('id') === id);
     if (person) {
       const pm = nextState.prevMembership = person.get('membership');
-      nextState.membership = UPGRADE_TARGET_TYPES.indexOf(pm) !== -1 ? pm : null;
-      const cap = nextState.canAddPaperPubs = !person.get('paper_pubs');
-      if (!cap) nextState.paperPubs = null;
+        nextState.membership = upgradeTypes(pm).indexOf(pm) !== -1 ? pm : null;
+        //const cap = nextState.canAddPaperPubs = !person.get('paper_pubs');
+        const cap = nextState.canAddPaperPubs = false;
+        if (!cap) nextState.paperPubs = null;
     } else {
       nextState.canAddPaperPubs = false;
       nextState.membership = null;
@@ -198,12 +209,12 @@ class Upgrade extends React.Component {
                   Upgrade to:
                 </Subheader>
                   <MemberTypeList
-                    canAddPaperPubs={canAddPaperPubs}
-                    memberTypes={UPGRADE_TARGET_TYPES}
-                    onSelectType={(membership) => this.setState({ membership })}
-                    prevType={prevMembership}
-                    prices={prices}
-                    selectedType={membership}
+                   canAddPaperPubs={canAddPaperPubs}
+                   memberTypes={upgradeTypes(prevMembership)}
+                   onSelectType={(membership) => this.setState({ membership })}
+                   prevType={prevMembership}
+                   prices={prices}
+                   selectedType={membership}
                   />
               </Col>
             </Row>

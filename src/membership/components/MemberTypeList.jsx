@@ -6,23 +6,30 @@ import EventSeat from 'material-ui/svg-icons/action/event-seat'
 import ThumbUp from 'material-ui/svg-icons/action/thumb-up'
 import DirectionsRun from 'material-ui/svg-icons/maps/directions-run'
 import DirectionsWalk from 'material-ui/svg-icons/maps/directions-walk'
-import StarTicket from 'material-ui/svg-icons/maps/local-play'
+import BidStarIcon from 'material-ui/svg-icons/toggle/star'
+import BidFriendIcon from 'material-ui/svg-icons/action/favorite';
+import BidSupporterIcon from 'material-ui/svg-icons/image/tag-faces'
+import FirstWorldcon from 'material-ui/svg-icons/maps/local-activity'
 import ChildFriendly from 'material-ui/svg-icons/places/child-friendly'
 import SmilingFace from 'material-ui/svg-icons/social/mood'
 
 const SelectableList = makeSelectable(List);
 
-export const memberTypeData = {
+const memberTypeData = {
   BidSupporter: {
-    primary: 'Supporter'
+    primary: 'Supporter',
+    secondary: 'Helen needs to provide text here',
+    icon: <BidSupporterIcon/>
   },
   BidFriend: {
     primary: 'Friend',
-    icon: <SmilingFace/>
+    secondary: 'Helen needs to provide text here',
+    icon: <BidFriendIcon/>
   },
   BidStar: {
     primary: 'Star',
-    icon: <StarTicket/>
+    secondary: 'Helen needs to provide text here',
+    icon: <BidStarIcon/>
   },
   Adult: {
     primary: 'Adult membership',
@@ -33,7 +40,7 @@ export const memberTypeData = {
   FirstWorldcon: {
     primary: 'First Worldcon membership',
     secondary: 'Have never been a Worldcon member',
-    icon: <StarTicket/>
+    icon: <FirstWorldcon/>
   },
   YoungAdult: {
     primary: 'Young Adult membership',
@@ -55,6 +62,10 @@ export const memberTypeData = {
   Supporter: {
     primary: 'Supporting membership',
     icon: <EventSeat/>
+  },
+  UpgradeBid: {
+    primary: 'Upgrade bid support level',
+    icon: <ThumbUp/>
   },
   Upgrade: {
     primary: 'Upgrade membership',
@@ -125,3 +136,5 @@ export default class MemberTypeList extends React.Component {
     );
   }
 }
+
+export { memberTypeData, MemberTypeList };
