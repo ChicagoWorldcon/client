@@ -10,7 +10,7 @@ const ImmutablePropTypes = require('react-immutable-proptypes');
 import { setScene, showMessage } from '../../app/actions/app'
 import { buyMembership, getPrices } from '../../payments/actions'
 import StripeCheckout from '../../payments/components/stripe-checkout'
-import { MembershipSelect } from './form-components'
+import { MembershipSelect, TextInput } from './form-components'
 import MemberForm from './MemberForm'
 import BidForm from './BidForm'
 
@@ -38,6 +38,7 @@ class NewMemberForm extends React.Component {
     const { email, getPrices, params: { membership }, prices } = this.props;
     this.state = {
       member: Map({ email, membership }),
+      tipAmount: 0,
       sent: false,
       valid: false
     };
@@ -82,7 +83,8 @@ class NewMemberForm extends React.Component {
     const { member } = this.state;
     const msAmount = prices.getIn(['memberships', member.get('membership'), 'amount']) || 0;
     const ppAmount = member.get('paper_pubs') && prices.getIn(['PaperPubs', 'amount']) || 0;
-    return msAmount + ppAmount;
+    const tipJarAmount = this.state.tipAmount || 0;
+    return msAmount + ppAmount + tipJarAmount;
   }
 
   get membershipType() {
@@ -114,6 +116,18 @@ class NewMemberForm extends React.Component {
                tabIndex={2}
         />
     }[this.membershipType];
+    const tipProps = {
+      getDefaultValue: (path) => 0,
+      getValue: (path) => this.state.tipAmount ? this.state.tipAmount / 100 : 0,
+      onChange: (path, value) => this.setState({ tipAmount: parseInt(value) * 100 })
+    };
+    const tipField = {
+      membership: <div/>,
+      bid: <TextInput
+          { ... tipProps }
+          path="tip_amount">
+      </TextInput>
+    }[this.membershipType];
 
     return <Row>
       <Col
@@ -136,6 +150,9 @@ class NewMemberForm extends React.Component {
           {form}
           </CardText>
           <CardActions style={{ display: 'flex', justifyContent: 'flex-end', paddingRight: 16, paddingBottom: 16 }}>
+            <div style={{ display: 'flex', marginRight: 'auto' }}>
+            {tipField}
+            </div>
             <div style={{ color: 'rgba(0, 0, 0, 0.5)', paddingTop: 8, paddingRight: 16 }}>
               {this.price > 0 ? `Total: \$${this.price / 100}` : ''}
             </div>
