@@ -49,7 +49,8 @@ const cfg = {
     extensions: [ '.js', '.jsx', '.css' ]
   },
   devServer: {
-    contentBase: './dist'
+    contentBase: './dist',
+    port: 9090
   }
 }
 
