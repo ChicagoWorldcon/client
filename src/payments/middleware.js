@@ -27,9 +27,9 @@ export default ({ dispatch }) => (next) => (action) => {
     } return;
 
     case 'BUY_MEMBERSHIP': {
-      const { amount, callback, email, member, source } = action;
+      const { payments, callback, email, member, source } = action;
       api.POST('purchase', {
-        amount,
+        payments,
         email,
         source,
         new_members: [member]

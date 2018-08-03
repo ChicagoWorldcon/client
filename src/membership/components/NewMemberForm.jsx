@@ -62,7 +62,7 @@ class NewMemberForm extends React.Component {
     const { member } = this.state;
     const email = member.get('email');
     showMessage(`Charging ${email} USD ${this.price/100} ...`);
-    buyMembership(member, this.price, email, token, () => {
+    buyMembership(member, this.paymentParts, email, token, () => {
       showMessage('Charge completed; new member registered!');
       push('/');
     });
@@ -77,14 +77,29 @@ class NewMemberForm extends React.Component {
     return parts.join(' + ')
   }
 
-  get price() {
+  get membershipPrice() {
     const { prices } = this.props;
     if (!prices) return 0;
     const { member } = this.state;
     const msAmount = prices.getIn(['memberships', member.get('membership'), 'amount']) || 0;
     const ppAmount = member.get('paper_pubs') && prices.getIn(['PaperPubs', 'amount']) || 0;
+    return msAmount + ppAmount;
+  }
+
+  get tip() {
     const tipJarAmount = this.state.tipAmount || 0;
-    return msAmount + ppAmount + tipJarAmount;
+    return tipJarAmount;
+  }
+
+  get price() {
+    return this.tip + this.membershipPrice;
+  }
+
+  get paymentParts() {
+    return {
+      membership: this.membershipPrice,
+      tip: this.tip,
+    };
   }
 
   get membershipType() {

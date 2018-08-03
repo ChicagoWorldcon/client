@@ -8,10 +8,10 @@ export const buyDaypass = (person, amount, email, source, callback) => ({
   source
 });
 
-export const buyMembership = (member, amount, email, source, callback) => ({
+export const buyMembership = (member, payments, email, source, callback) => ({
   module: 'members',
   type: 'BUY_MEMBERSHIP',
-  amount,
+  payments,
   callback,
   email,
   member,
