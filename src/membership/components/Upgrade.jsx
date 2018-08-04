@@ -157,7 +157,7 @@ class Upgrade extends React.Component {
     return (
       <CardActions style={{ display: 'flex', justifyContent: 'flex-end', paddingRight: 16, paddingBottom: 16 }}>
         <div style={{ color: 'rgba(0, 0, 0, 0.5)', paddingTop: 8, paddingRight: 16 }}>
-          {prevMembership && amount > 0 ? `Total: €${amount / 100}` : ''}
+          {prevMembership && amount > 0 ? `Total: $${amount / 100}` : ''}
         </div>
         <StripeCheckout
           amount={amount}

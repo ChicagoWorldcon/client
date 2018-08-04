@@ -165,7 +165,7 @@ class NewPayment extends React.Component {
               </StripeCheckout>
               <div>
                 Amount:
-                <span style={{ paddingLeft: 8, paddingRight: 8 }}>€</span>
+                <span style={{ paddingLeft: 8, paddingRight: 8 }}>$</span>
                 {cd.get('variableAmount') ? (
                   <TextField
                     name="amount"

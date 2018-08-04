@@ -143,7 +143,7 @@ class NewDaypassForm extends React.Component {
                   <Col xs={12} sm={4} key={day} style={{ paddingTop: '0.5rem', paddingBottom: '0.5rem' }}>
                     <RaisedButton
                       fullWidth={true}
-                      label={`${data.get('label')} (€${daypassPrices.getIn([type, day]) / 100})`}
+                      label={`${data.get('label')} ($${daypassPrices.getIn([type, day]) / 100})`}
                       onTouchTap={() => this.setState({ person: person.set(day, !selected)})}
                       primary={selected}
                     />
@@ -179,7 +179,7 @@ class NewDaypassForm extends React.Component {
               />
             </StripeCheckout>
             <div>
-              {amount > 0 ? `Total: €${(amount / 100).toFixed(2)}` : ''}
+              {amount > 0 ? `Total: $${(amount / 100).toFixed(2)}` : ''}
             </div>
           </CardActions>
         </Card>

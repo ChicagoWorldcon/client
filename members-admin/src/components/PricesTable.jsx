@@ -77,7 +77,7 @@ export default class PricesTable extends React.Component {
                   }}
                 />
                 <FlexColumn dataKey='status' label='Status' width={80} />
-                <FlexColumn dataKey='amount' label='€' width={50}
+                <FlexColumn dataKey='amount' label='$' width={50}
                   cellDataGetter = {({ rowData }) => {
                     let amount = rowData.get('amount') / 100
                     const currency = rowData.get('currency', '').toUpperCase()

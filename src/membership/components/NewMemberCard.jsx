@@ -50,7 +50,7 @@ const contents = {
         membership of An Unnamed Chicago 2022 Worldcon.
       </p><p>
         Persons born on 14 August 1994 or later qualify for <b>Young Adult</b>{' '}
-        attending memberships of An Unnamed Chicago 2022 Worldcon (€100).
+        attending memberships of An Unnamed Chicago 2022 Worldcon ($100).
       </p><p>
         All attending memberships carry the same rights as supporting
         memberships, in addition to the right of general admission to the

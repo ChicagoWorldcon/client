@@ -22,7 +22,7 @@ const SelectNewPaymentCard = ({ data, label, onSelect, title }) => {
   const items = data.get('types').entrySeq().map(([key, typeData]) => {
     const amount = typeData.get('amount');
     const label = typeData.get('label');
-    const primary = label + (amount > 0 ? ` (€${amount / 100})` : '');
+    const primary = label + (amount > 0 ? ` ($${amount / 100})` : '');
     return <ListItem
       key={key}
       leftIcon={icon(key)}

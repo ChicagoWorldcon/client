@@ -15,7 +15,7 @@
     "name": "Nimi",
     "address": "Osoite",
     "country": "Maa",
-    "label": "Haluan julkaisut painettuna postitse (€{amount})",
+    "label": "Haluan julkaisut painettuna postitse (${amount})",
     "new_hint": "Olemme sinuun yhteydessä pääsääntöisesti sähköisesti antaaksemme tietoa valmistelujemme edistymisestä. Mikäli haluat lisäksi Progress Reportit ja muut julkaisut painettuina versioina ja postitettuna, valitse tämä kohta. Huomaathan, että tämä vaihtoehto sisältää lisämaksun.",
     "new_hint2": "Ole hyvä ja anna osoitetietosi kuten haluat ne tulostettavan osoitetarraan.",
     "edit_hint": ""

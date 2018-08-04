@@ -80,16 +80,16 @@ export const BasicRules = () => <div>
     <b>Entry Fees and Commission</b><br/>
     Please note that all fees are inclusive of VAT.</p>
     <ul>
-    <li>€30 per full size panel (100 x 250 cm, of which 100 x 150 cm is optimally usable) (maximum of 4 per artist)</li>
-    <li>€15 per half-table (A half-table is 100cm x 70cm.) (Maximum of 8 half-tables per artist)</li>
-    <li>Print Shop fee is €1 per item (not per different image)</li>
-    <li>Projected Art: €20 per artist (maximum 20 images)</li>
+    <li>$30 per full size panel (100 x 250 cm, of which 100 x 150 cm is optimally usable) (maximum of 4 per artist)</li>
+    <li>$15 per half-table (A half-table is 100cm x 70cm.) (Maximum of 8 half-tables per artist)</li>
+    <li>Print Shop fee is $1 per item (not per different image)</li>
+    <li>Projected Art: $20 per artist (maximum 20 images)</li>
     </ul>
     <p>
-    There will be a €20 handling fee, in addition to the cost of postage, for mailing unsold art back to the artist
+    There will be a $20 handling fee, in addition to the cost of postage, for mailing unsold art back to the artist
   </p><p>
     <b>Mail-in artwork:</b><br/>
-    space fee + return postage + €20. This also applies to attending artists
+    space fee + return postage + $20. This also applies to attending artists
     mailing in their work. Due to the substantial effort required for our staff
     to store, unpack, hang, unhang, and re­pack mailed-in art, we will only
     allow a limited amount of it. Please do not request permission to mail your

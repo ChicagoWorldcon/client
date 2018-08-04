@@ -38,7 +38,7 @@ const GalleryCard = ({ artist: { auction, digital, legal, postage, print, waitli
         </Col>
         <Col xs={12}>
         <span style={{ fontSize:13 }} >       
-        1 x 2.5 metres, of which 1 x 1.5 metres is optimally usable. Maximum of 4 per artist at 30 € each.
+        1 x 2.5 metres, of which 1 x 1.5 metres is optimally usable. Maximum of 4 per artist at 30 $ each.
         </span>
         </Col>
         <Col xs={8}>
@@ -58,7 +58,7 @@ const GalleryCard = ({ artist: { auction, digital, legal, postage, print, waitli
         </Col>
           <Col xs={12}>
           <span style={{ fontSize:13 }} >       
-          100cm x 70cm. Maximum of 8 half-tables per artist at 15 € each.
+          100cm x 70cm. Maximum of 8 half-tables per artist at 15 $ each.
           </span>
         </Col>
       </Row>
@@ -81,7 +81,7 @@ const GalleryCard = ({ artist: { auction, digital, legal, postage, print, waitli
         <Col xs={1}>total</Col>
         <Col xs={12}>
                 <span style={{ fontSize:13 }}>          
-           0.50 € per item copy. Maximum of 200 individual items per artist.
+           0.50 $ per item copy. Maximum of 200 individual items per artist.
            </span>
         </Col>
       </Row>
@@ -98,7 +98,7 @@ const GalleryCard = ({ artist: { auction, digital, legal, postage, print, waitli
       </Row>
       <Row style={{ alignItems: 'center' }}>
         <Col xs={8}>
-          <label style={labelStyle}>Estimated Return Postage (plus 20 € for handling)</label>
+          <label style={labelStyle}>Estimated Return Postage (plus 20 $ for handling)</label>
         </Col>
         <Col xs={3}>
           <TextField
@@ -111,7 +111,7 @@ const GalleryCard = ({ artist: { auction, digital, legal, postage, print, waitli
             value={postage}
           />
         </Col>
-        <Col xs={1}>€</Col>
+        <Col xs={1}>$</Col>
       </Row>
 
       <Checkbox
@@ -125,7 +125,7 @@ const GalleryCard = ({ artist: { auction, digital, legal, postage, print, waitli
 
     <CardActions style={{ alignItems: 'center', display: 'flex', padding: 16 }}>
       <div style={{ flexGrow: 1 }}>
-        Total estimated cost: {total} €
+        Total estimated cost: {total} $
       </div>
       <RaisedButton
         disabled={!legal}

@@ -214,7 +214,7 @@ export default class ArtworkCard extends React.Component {
               name="start"
               min = {0}
               floatingLabelStyle={label}
-              floatingLabelText="Starting auction €"
+              floatingLabelText="Starting auction $"
               fullWidth={true}
               onChange={ev => this.setState({ start: Math.max(0, ev.target.value) })}
               value={this.state.start || 0}
@@ -226,7 +226,7 @@ export default class ArtworkCard extends React.Component {
               name="sale"
               min = {0}
               floatingLabelStyle={label}
-              floatingLabelText="Instant sale €"
+              floatingLabelText="Instant sale $"
               fullWidth={true}
               onChange={ev => this.setState({ sale: Math.max(0, ev.target.value) })}
               value={this.state.sale || 0}
@@ -255,7 +255,7 @@ export default class ArtworkCard extends React.Component {
               name="Price"
               min = {0}
               floatingLabelStyle={label}
-              floatingLabelText="Price €"
+              floatingLabelText="Price $"
               fullWidth={true}
               onChange={ev => this.setState({ price: Math.max(0, ev.target.value) })}
               value={this.state.price || 0}

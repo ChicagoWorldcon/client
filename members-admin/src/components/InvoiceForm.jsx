@@ -72,7 +72,7 @@ const InvoiceForm = ({
 }) => (
   <form>
     <div style={{ float: 'right' }}>
-      <span style={{ paddingRight: 8 }}>€</span>
+      <span style={{ paddingRight: 8 }}>$</span>
       <TextField
         floatingLabelFixed={true}
         floatingLabelText="Amount"

@@ -33,7 +33,7 @@ const PaymentCardHeader = ({ amount, status, subtitle, title, updated }) => {
     >
       <div style={{ flexGrow: 1, textAlign: 'right' }}>
         <div style={{ color: amountColor, fontSize: 15 }}>
-          €{amount / 100}<br/>
+          ${amount / 100}<br/>
         </div>
         <div
           style={{ color: statusColor, fontSize: 14, textTransform: 'uppercase' }}

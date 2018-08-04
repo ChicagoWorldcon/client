@@ -33,7 +33,7 @@ const memberTypeData = {
   },
   Adult: {
     primary: 'Adult membership',
-    daypass: 'Adult day pass (from €25/day)',
+    daypass: 'Adult day pass (from $25/day)',
     secondary: 'Born on or before 15 August 1993',
     icon: <DirectionsWalk/>
   },
@@ -44,13 +44,13 @@ const memberTypeData = {
   },
   YoungAdult: {
     primary: 'Young Adult membership',
-    daypass: 'Young Adult day pass (from €15/day)',
+    daypass: 'Young Adult day pass (from $15/day)',
     secondary: 'Born between 16 Aug 1993 and 15 Aug 2006 inclusive',
     icon: <DirectionsRun/>
   },
   Child: {
     primary: 'Child membership',
-    daypass: 'Child day pass (from €10/day)',
+    daypass: 'Child day pass (from $10/day)',
     secondary: 'Born between 16 Aug 2006 and 15 Aug 2013 inclusive',
     icon: <SmilingFace/>
   },
@@ -101,7 +101,7 @@ export default class MemberTypeList extends React.Component {
     const isDisabled = disabled || prevType && amount < 0;
     const primaryText = category === 'daypass' ? daypass
         : amount < 0 ? primary
-        : amount > 0 ? `${primary} (€${amount / 100})`
+        : amount > 0 ? `${primary} ($${amount / 100})`
         : !prevType ? `${primary} (free)`
         : canAddPaperPubs ? 'No upgrade' : 'No upgrade available'
     const secondaryText = !prevType || amount ? secondary
