@@ -11,8 +11,8 @@
   },
   "scripts": {
     "start": "webpack-dev-server -d --hot --progress --colors",
-    "dev-api-server": "API_HOST=api-dev.chicagoworldcon.org:443 TITLE='Members Dev' NODE_ENV=development webpack-dev-server -d --hot --progress --colors",
-    "local-api-server": "API_HOST=localhost:4430 TITLE='Members Dev - Local' NODE_ENV=development webpack-dev-server -d --hot --progress --colors",
+    "dev-api-server": "API_HOST=api-dev.chicagoworldcon.org:443 TITLE='Members Dev' NODE_ENV=development webpack-dev-server -d --hot --progress --colors --host 0.0.0.0",
+    "local-api-server": "API_HOST=localhost:4430 TITLE='Members Dev - Local' NODE_ENV=development webpack-dev-server -d --hot --progress --colors --host 0.0.0.0",
     "build": "webpack -d --progress --colors",
     "build:development": "./build.sh",
     "build:prod": "NODE_ENV=production ./build.sh",
