@@ -109,7 +109,12 @@ export default class BidForm extends React.Component {
         </Col>
         <Col xs={12} sm={6}>
           { newMember ? [
-              <TextInput { ...inputProps } key="input" path='email' required={true} />,
+              <TextInput { ...inputProps }
+                key="input"
+                path='email'
+                type='email'
+                required={true}
+              />,
               <div key="hint" style={hintStyle}>{this.msg('new_email_hint')}</div>
           ] : [
               <TextInput { ...inputProps } key="input" path='email' disabled={true} />,
