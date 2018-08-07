@@ -28,7 +28,8 @@ class KeyRequest extends React.Component {
 
     return <div>
       <Card style={cardStyle}>
-        <CardHeader
+          <CardHeader
+          className="card"
           title="Request login link"
           style={{ fontWeight: 600 }}
         />
@@ -76,19 +77,13 @@ class KeyRequest extends React.Component {
           </form>
         </CardText>
       </Card>
-      <div className="bg-text" style={{ fontSize: 14, margin: '12px 0 20px', padding: '2px 16px', color: '#6abd45', backgroundColor: 'rgba(0, 0, 0, 0.67)' }}>
+      <div className="bg-text" style={{ fontSize: 14, margin: '12px 0 20px', padding: '2px 16px', backgroundColor: 'rgba(0, 0, 0, 0.67)' }}>
         <p>
           If you're not able to enter a valid address, or if you do not receive
           the login link within 30 minutes or so, please get in touch with us at
           {' '}<a href="mailto:info@chicagoworldconbid.org">info@chicagoworldconbid.org</a>{' '}
           and we'll help you get sorted.
           </p>
-          <p>
-          If your email address is associated with more than one membership that
-          is eligible to vote or nominate in the 2022 Hugo Awards, you'll need to
-          use the separately emailed Hugo login link to access those services.
-          Hugo nominations will open in early 2021.
-        </p>
       </div>
     </div>
   }

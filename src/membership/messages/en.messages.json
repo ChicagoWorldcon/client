@@ -1,12 +1,12 @@
 {
   "legal_name": "Legal Name",
-  "legal_name_hint": "We'll need you to bring something with your legal name on it to pick up your badge at con, but otherwise it'll stay confidential.",
+  "legal_name_hint": "We'll use this to match your site selection ballot. Use whatever you (will) use when registering for New Zealand in 2020 (optimism! 😄).",
   "email": "Email",
-  "new_email_hint": "How we'll get in touch with you before the con, and where we'll send important information about the Hugo Awards and Worldcon Site Selection.",
+  "new_email_hint": "How we'll get in touch with you before the vote, and where we'll send important information about Worldcon Site Selection.",
   "edit_email_hint": "To change the email address associated with this membership, please get in touch with us at <a href=\"mailto:info@chicagoworldconbid.org\">info@chicagoworldconbid.org</a>",
-  "public_first_name": "Given Name For Publications",
-  "public_last_name": "Family Name For Publications",
-  "public_name_hint": "How shall we list you in public? Leave these fields blank if you'd prefer we don't list you at all on our website or elsewhere. If you give us two names, we'll use the second for alphabetization (either can contain spaces). A few months before the con, you'll be able to separately customize the text of your badge.",
+  "public_first_name": "First Name For Publications",
+  "public_last_name": "Last Name For Publications",
+  "public_name_hint": "How shall we list you in public? Leave these fields blank if you'd prefer we don't list you at all on our website or elsewhere. If you give us two names, we'll use the second for alphabetization (either can contain spaces).",
   "city": "City / Town",
   "address": "Address",
   "postcode": "Postal Code",
@@ -27,5 +27,7 @@
   "membership_type": "Membership type",
   "required": "Required",
   "total": "Total",
-  "pay_by_card": "Pay by card"
+    "pay_by_card": "Pay by card",
+    "tip_amount": "Tip Amount",
+    "tip_amount_hint": "Helps cover credit card processing fees"
 }

@@ -35,15 +35,16 @@ main {
 
 
 h1 {
-  color: #6abd45;
+  /* color: #6abd45; */
+  color: #3da9d4; 
   font-size: 36px;
   font-weight: 300;
   text-align: center;
   text-shadow: 0 0 2px #6abd45;
 }
 
-h2 { color: #6abd45; font-size: 24px }
-h3 { color: #6abd45; font-size: 18px }
+h2 { color: #3da9d4; font-size: 24px }
+h3 { color: #3da9d4; font-size: 18px }
 
 :-moz-ui-invalid { box-shadow: none }
 
@@ -51,6 +52,15 @@ h3 { color: #6abd45; font-size: 18px }
   color: white;
   text-shadow: 0 0 3px black;
 }
+
+.bg-text .hero {
+  color: #6abd45;
+}
+
+.card {
+    color: black;
+}
+
 a {
   color: #00a1ff;
   text-decoration: none;
@@ -137,4 +147,10 @@ span.upload input {
 .vote-item > div > div > div:last-child {
   height: auto !important;
   white-space: normal !important;
+}
+
+.hint {
+    color: #888;
+    font-size: 13px;
+    margin: 12px 0 24px;
 }

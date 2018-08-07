@@ -17,18 +17,18 @@ const SelectableList = makeSelectable(List);
 
 const memberTypeData = {
   BidSupporter: {
-    primary: 'Supporter',
-    secondary: 'Helen needs to provide text here',
+    primary: 'Donor',
+    secondary: 'Thank you for supporting the bid!',
     icon: <BidSupporterIcon/>
   },
   BidFriend: {
     primary: 'Friend',
-    secondary: 'Helen needs to provide text here',
+    secondary: 'Converts to attending with 2020 site selection vote',
     icon: <BidFriendIcon/>
   },
   BidStar: {
     primary: 'Star',
-    secondary: 'Helen needs to provide text here',
+    secondary: 'Converts to attending with 2020 site selection vote, +bonus TBA',
     icon: <BidStarIcon/>
   },
   Adult: {
