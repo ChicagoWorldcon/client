@@ -1,5 +1,5 @@
 {
-  "legal_name": "Legal Name",
+  "legal_name": "Name",
   "legal_name_hint": "We'll use this to match your site selection ballot. Use whatever you (will) use when registering for New Zealand in 2020 (optimism! 😄).",
   "email": "Email",
   "new_email_hint": "How we'll get in touch with you before the vote, and where we'll send important information about Worldcon Site Selection.",
@@ -7,6 +7,7 @@
   "public_first_name": "First Name For Publications",
   "public_last_name": "Last Name For Publications",
   "public_name_hint": "How shall we list you in public? Leave these fields blank if you'd prefer we don't list you at all on our website or elsewhere. If you give us two names, we'll use the second for alphabetization (either can contain spaces).",
+  "address_hint": "Your address will be used for paper publications in the event we win the bid.",
   "city": "City / Town",
   "address": "Address",
   "postcode": "Postal Code",
@@ -25,7 +26,7 @@
     "edit_hint": "For paper progress reports, we'll need to know where to send your mail. Please enter your address details here as you'd wish them to be printed onto a postal label."
   },
   "membership_type": "Membership type",
-  "required": "Required",
+  "required": "*",
   "total": "Total",
     "pay_by_card": "Pay by card",
     "tip_amount": "Tip Amount",

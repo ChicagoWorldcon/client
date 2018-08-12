@@ -136,16 +136,19 @@ export default class BidForm extends React.Component {
         <Col xs={12} style={hintStyle}>{this.msg('public_name_hint')}</Col>
       </Row>
       <Row>
+        <Col xs={12} style={hintStyle}>{this.msg('address_hint')}</Col>
+      </Row>
+      <Row>
         <Col xs={12}>
-          <TextInput { ...inputProps } path='address' />
+          <TextInput { ...inputProps } path='address' required={true} />
         </Col>
       </Row>
       <Row>
         <Col xs={12} sm={6}>
-          <TextInput { ...inputProps } path='city' />
+          <TextInput { ...inputProps } path='city' required={true} />
         </Col>
         <Col xs={12} sm={6}>
-          <TextInput { ...inputProps } path='state' />
+          <TextInput { ...inputProps } path='state' required={true} />
         </Col>
       </Row>
       <Row>
@@ -153,7 +156,7 @@ export default class BidForm extends React.Component {
           <TextInput { ...inputProps } path='postcode' />
         </Col>
         <Col xs={12} sm={6}>
-          <TextInput { ...inputProps } path='country' />
+          <TextInput { ...inputProps } path='country' required={true} />
         </Col>
       </Row>
       {!newMember ? (

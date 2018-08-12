@@ -20,7 +20,7 @@ export const TextInput = ({ getDefaultValue, getValue, inputRef, label, lc = 'en
       label = ps.charAt(0).toUpperCase() + ps.slice(1).replace(/_/g, ' ')
     }
   }
-  if (required) label += ` (${messages[lc].required()})`
+  if (required) label += ` ${messages[lc].required()}`
   const ulStyle = {}
   if (required && !value) {
     ulStyle.borderBottomWidth = 2
