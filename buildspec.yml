@@ -4,6 +4,7 @@ phases:
   install:
     commands:
       - cd $CODEBUILD_SRC_DIR/$CLIENT_SRC_DIR; npm install
+      - echo '#!/bin/bash' > /usr/local/bin/ok; echo 'if [[ "$CODEBUILD_BUILD_SUCCEEDING" == "0" ]]; then exit 1; else exit 0; fi' >> /usr/local/bin/ok; chmod +x /usr/local/bin/ok
 
   pre_build:
     commands: []
@@ -14,5 +15,5 @@ phases:
 
   post_build:
     commands:
-      - cd $CODEBUILD_SRC_DIR/$CLIENT_SRC_DIR; aws s3 sync dist/ s3://$BUCKET_NAME/public/ --region $AWS_REGION --delete --acl public-read
+      - ok && cd $CODEBUILD_SRC_DIR/$CLIENT_SRC_DIR; aws s3 sync dist/ s3://$BUCKET_NAME/public/ --region $AWS_REGION --delete --acl public-read
 
