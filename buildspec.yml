@@ -10,7 +10,7 @@ phases:
 
   build:
     commands:
-      - cd $CODEBUILD_SRC_DIR/$CLIENT_SRC_DIR; webpack -p --progress --colors
+      - cd $CODEBUILD_SRC_DIR/$CLIENT_SRC_DIR; node_modules/.bin/webpack -p --progress --colors
 
   post_build:
     commands:
