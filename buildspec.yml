@@ -1,0 +1,18 @@
+version: 0.1
+
+phases:
+  install:
+    commands:
+      - cd $CODEBUILD_SRC_DIR/$CLIENT_SRC_DIR; npm install
+
+  pre_build:
+    commands: []
+
+  build:
+    commands:
+      - cd $CODEBUILD_SRC_DIR/$CLIENT_SRC_DIR; webpack -p --progress --colors
+
+  post_build:
+    commands:
+      - cd $CODEBUILD_SRC_DIR/$CLIENT_SRC_DIR; aws s3 sync dist/ s3://$BUCKET_NAME/public/ --region $AWS_REGION --delete --acl public-read
+
