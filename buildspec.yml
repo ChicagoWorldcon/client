@@ -15,7 +15,7 @@ phases:
 
   post_build:
     commands:
-      - ok && cd $CODEBUILD_SRC_DIR/$CLIENT_SRC_DIR; aws s3 sync dist/ s3://$BUCKET_NAME/public/ --region $AWS_REGION --delete --acl public-read
+      - ok && cd $CODEBUILD_SRC_DIR/$CLIENT_SRC_DIR; aws s3 sync dist/ s3://$BUCKET_NAME/ --region $AWS_REGION --delete --acl public-read
 
 cache:
   paths:
