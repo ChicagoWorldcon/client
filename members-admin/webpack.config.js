@@ -14,7 +14,7 @@ const cfg = {
   entry: './src/index.jsx',
   output: {
     path: __dirname + '/dist',
-    publicPath: '/admin',
+    publicPath: '/',
     filename: 'bundle.js',
   },
   devtool: '#eval-source-map',
