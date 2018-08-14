@@ -35,6 +35,7 @@
     "react": "^15.5.4",
     "react-addons-shallow-compare": "^15.5.1",
     "react-dom": "^15.5.4",
+    "react-hot-loader": "^3.0.0-beta.4",
     "react-immutable-proptypes": "^2.1.0",
     "react-redux": "^5.0.4",
     "react-tap-event-plugin": "^2.0.1",
