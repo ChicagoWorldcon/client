@@ -25,6 +25,10 @@
     "new_hint2": "We'll need to know where to send your mail. Please enter your address details here as you'd wish them to be printed onto a postal label.",
     "edit_hint": "For paper progress reports, we'll need to know where to send your mail. Please enter your address details here as you'd wish them to be printed onto a postal label."
   },
+  "contact_prefs": {
+    "send_email": "Contact by Email",
+    "send_snailmail": "Contact by postal mail"
+  },
   "membership_type": "Membership type",
   "required": "*",
   "total": "Total",

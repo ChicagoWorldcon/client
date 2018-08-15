@@ -7,6 +7,7 @@ import FlatButton from 'material-ui/FlatButton'
 const { Col, Row } = require('react-flexbox-grid');
 const ImmutablePropTypes = require('react-immutable-proptypes');
 
+import messages from '../messages'
 import { setScene, showMessage } from '../../app/actions/app'
 import { buyMembership, getPrices } from '../../payments/actions'
 import StripeCheckout from '../../payments/components/stripe-checkout'
@@ -37,7 +38,7 @@ class NewMemberForm extends React.Component {
     super(props);
     const { email, getPrices, params: { membership }, prices } = this.props;
     this.state = {
-      member: Map({ email, membership }),
+      member: Map({ email, membership, contact_prefs: Map({ email: true, snailmail: false }) }),
       tipAmount: 0,
       sent: false,
       valid: false
@@ -66,6 +67,11 @@ class NewMemberForm extends React.Component {
       showMessage('Charge completed; new member registered!');
       push('/');
     });
+  }
+
+  msg(key, params) {
+    const { lc = 'en' } = this.props
+    return messages[lc][key](params)
   }
 
   get description() {
@@ -138,10 +144,13 @@ class NewMemberForm extends React.Component {
     };
     const tipField = {
       membership: <div/>,
-      bid: <TextInput
+      bid: <div>
+        <TextInput
           { ... tipProps }
+          
           path="tip_amount">
-      </TextInput>
+        </TextInput>
+        </div>
     }[this.membershipType];
 
     return <Row>

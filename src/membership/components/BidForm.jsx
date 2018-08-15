@@ -2,6 +2,7 @@ import { Map } from 'immutable'
 import React, { PropTypes } from 'react'
 const { Col, Row } = require('react-flexbox-grid')
 const ImmutablePropTypes = require('react-immutable-proptypes')
+import Checkbox from 'material-ui/Checkbox';
 
 import { midGray } from '../../theme'
 import messages from '../messages'
@@ -18,7 +19,11 @@ export default class BidForm extends React.Component {
   static propTypes = {
     lc: PropTypes.string,
     member: ImmutablePropTypes.mapContains({
-      paper_pubs: ImmutablePropTypes.map
+      paper_pubs: ImmutablePropTypes.map,
+      contact_prefs: ImmutablePropTypes.mapContains({
+        email: PropTypes.bool,
+        snailmail: PropTypes.bool
+      })
     }),
     newMember: PropTypes.bool,
     onChange: PropTypes.func.isRequired,
@@ -73,9 +78,25 @@ export default class BidForm extends React.Component {
     return BidForm.isValid(this.state.member)
   }
 
+  get contactPrefsHasEmail() {
+    const p = ["contact_prefs", "email"];
+    return this.state.member.getIn(p);
+  }
+
+  get contactPrefsHasSnailmail() {
+    const p = ["contact_prefs", "snailmail"];
+    return this.state.member.getIn(p);
+  }
+
   msg(key, params) {
-    const { lc = 'en' } = this.props
-    return messages[lc][key](params)
+    if (!Array.isArray(key)) key = [ key ];
+
+    const get = (p, o) =>
+          p.reduce((xs, x) => (xs && xs[x]) ? xs[x] : null, o);
+
+    const { lc = 'en' } = this.props;
+
+    return get(key, messages[lc])(params);
   }
 
   onChange = (path, value) => {
@@ -87,7 +108,8 @@ export default class BidForm extends React.Component {
   }
 
   render() {
-    const { lc, newMember, prices, tabIndex } = this.props
+    const { lc, newMember, prices, tabIndex } = this.props;
+    const { member } = this.state;
     const inputProps = {
       getDefaultValue: this.getDefaultValue,
       getValue: this.getValue,
@@ -95,6 +117,9 @@ export default class BidForm extends React.Component {
       onChange: this.onChange,
       tabIndex
     }
+
+    const emailPath = ['contact_prefs', 'email'];
+    const snailmailPath = ['contact_prefs', 'snailmail'];
 
     return <form>
       <Row>
@@ -134,6 +159,22 @@ export default class BidForm extends React.Component {
           <TextInput { ...inputProps } path='public_last_name' />
         </Col>
         <Col xs={12} style={hintStyle}>{this.msg('public_name_hint')}</Col>
+      </Row>
+      <Row>
+        <Col xs={12} sm={6}>
+          <Checkbox
+            label={this.msg(["contact_prefs", "send_email"])}
+            checked={member.getIn(emailPath, true)}
+            onCheck={(ev, checked) => this.onChange(emailPath, checked) }
+            />
+        </Col>
+        <Col xs={12} sm={6}>
+          <Checkbox
+            label={this.msg(["contact_prefs", "send_snailmail"])}
+            checked={member.getIn(snailmailPath, false)}
+            onCheck={(ev, checked) => this.onChange(snailmailPath, checked) }
+            />
+        </Col>
       </Row>
       <Row>
         <Col xs={12} style={hintStyle}>{this.msg('address_hint')}</Col>
