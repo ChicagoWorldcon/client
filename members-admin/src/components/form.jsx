@@ -92,7 +92,7 @@ const MembershipSelect = ({ getDefaultValue, getValue, onChange }) => {
     style={{ marginLeft: '24px' }}
     floatingLabelText='Membership type'
     floatingLabelFixed={true}
-    value={ getValue(path) || 'NonMember' }
+    value={ getValue(path) || 'BidSupporter' }
     onChange={ (ev, idx, value) => onChange(path, value) }
   >
     { Member.membershipTypes.map((type, idx) => (
@@ -117,8 +117,5 @@ const PaperPubsCheckbox = ({ getDefaultValue, getValue, onChange }) => {
 
 export const UpgradeFields = (props) => (<div>
   <MembershipSelect { ...props } />
-  <PaperPubsCheckbox { ...props } />
-  <br />
-  <PaperPubsFields { ...props } />
 </div>);
 UpgradeFields.propTypes = basePropTypes;
