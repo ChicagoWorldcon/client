@@ -92,7 +92,7 @@ const MembershipSelect = ({ getDefaultValue, getValue, onChange }) => {
     style={{ marginLeft: '24px' }}
     floatingLabelText='Membership type'
     floatingLabelFixed={true}
-    value={ getValue(path) || 'BidSupporter' }
+    value={ getValue(path) || 'NonMember' }
     onChange={ (ev, idx, value) => onChange(path, value) }
   >
     { Member.membershipTypes.map((type, idx) => (
