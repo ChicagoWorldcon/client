@@ -144,7 +144,9 @@ class Upgrade extends React.Component {
     const { buyUpgrade, email, push, showMessage } = this.props;
     const { membership, paperPubs } = this.state;
     showMessage(`Charging ${email} USD ${amount/100} for upgrade...`);
-    buyUpgrade(this.id, membership, paperPubs, amount, email, token, () => {
+      buyUpgrade(this.id, membership, paperPubs, {
+          "membership": amount,
+      }, email, token, () => {
       showMessage('Payment successful!');
       push('/');
     });

@@ -58,9 +58,9 @@ export default ({ dispatch }) => (next) => (action) => {
     } return;
 
     case 'BUY_UPGRADE': {
-      const { amount, callback, email, id, membership, paper_pubs, source } = action;
+      const { payments, callback, email, id, membership, paper_pubs, source } = action;
       api.POST('purchase', {
-        amount,
+        payments,
         email,
         source,
         upgrades: [{ id, membership, paper_pubs }]

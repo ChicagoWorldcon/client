@@ -29,10 +29,10 @@ export const buyOther = (account, email, source, items, callback) => ({
   source
 });
 
-export const buyUpgrade = (id, membership, paper_pubs, amount, email, source, callback) => ({
+export const buyUpgrade = (id, membership, paper_pubs, payments, email, source, callback) => ({
   module: 'members',
   type: 'BUY_UPGRADE',
-  amount,
+  payments,
   callback,
   email,
   id,
